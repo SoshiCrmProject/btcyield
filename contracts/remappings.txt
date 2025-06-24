@@ -1,0 +1,4 @@
+@openzeppelin/=lib/openzeppelin-contracts/
+@oz-upgradeable/=lib/openzeppelin-contracts-upgradeable/
+@chainlink/=lib/chainlink/
+forge-std/=lib/forge-std/src/
