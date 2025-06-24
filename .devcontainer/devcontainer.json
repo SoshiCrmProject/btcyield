@@ -1,0 +1,45 @@
+{
+  "name": "BTCYield Development",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-python.python",
+        "JuanBlanco.solidity",
+        "ms-azuretools.vscode-docker",
+        "GitHub.copilot",
+        "eamodio.gitlens",
+        "bradlc.vscode-tailwindcss",
+        "prisma.prisma"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        }
+      }
+    }
+  },
+  "postCreateCommand": "npm install",
+  "forwardPorts": [3000, 3001, 4000, 5432, 6379],
+  "portsAttributes": {
+    "3000": { "label": "Web App", "onAutoForward": "notify" },
+    "3001": { "label": "Admin Panel", "onAutoForward": "notify" },
+    "4000": { "label": "API Gateway", "onAutoForward": "notify" },
+    "5432": { "label": "PostgreSQL", "onAutoForward": "ignore" },
+    "6379": { "label": "Redis", "onAutoForward": "ignore" }
+  },
+  "remoteEnv": {
+    "NODE_ENV": "development"
+  }
+}
